@@ -1,9 +1,16 @@
 #!/usr/bin/env python
 import re
 
-theme = open(
-             '/usr/share/themes/Adwaita/metacity-1/metacity-theme-3.xml'
-            ).read()
-
+themefile = '/usr/share/themes/Adwaita/metacity-1/metacity-theme-3.xml'
+theme = open(themefile).read()
 maxframe = re.findall('<frame_geometry name="max".+?</frame_geometry>', theme, re.DOTALL)
-print maxframe
+replaced = re.sub('<frame_geometry name="max"',
+                  '<frame_geometry name="max" has_title="false"',
+                  re.sub('"\d\d?"', '"0"', maxframe[0]))
+open(themefile, 'w').write(
+        re.sub('<frame_geometry name="max".+?</frame_geometry>',
+             replaced,
+             theme,
+             flags=re.DOTALL
+            )
+        )
