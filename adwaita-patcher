@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+import re
+
+theme = open(
+             '/usr/share/themes/Adwaita/metacity-1/metacity-theme-3.xml'
+            ).read()
+
+maxframe = re.findall('<frame_geometry name="max".+?</frame_geometry>', theme, re.DOTALL)
+print maxframe
