@@ -1,4 +1,4 @@
-Patches the Adwaita theme to remove the window tile bar for maximised windows
+Patches the Adwaita theme to remove the window title bar for maximised windows
 
 Run
 
