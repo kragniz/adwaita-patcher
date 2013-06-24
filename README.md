@@ -4,4 +4,5 @@ Run
 
     $ sudo ./adwaita-patcher
 
-then reload gnome
+then reload gnome (press Alt-F2, type `r` into the box which appears and press
+enter)
